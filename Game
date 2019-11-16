@@ -1,0 +1,97 @@
+<html>
+<head> 
+	<style type="text/css">		
+
+#video{
+	margin-left: 80px;
+	margin-top: 300px;
+	position: absolute;
+	z-index: 3;
+	border-radius: 10px;
+	border: 2px solid lime;
+	margin-top: 330px;
+}
+#main{
+	height: 1000px;
+	width:600px;
+	background: white;
+	position: absolute;
+	z-index: 2;
+	border-radius: 50px;
+	marker-left: 600px;
+	border: 5px solid lime;
+	margin-top: 180px;
+	}
+#footer{
+	background: white;
+	width: 80%;
+	height: 130px;
+	border-radius: 50px;
+	border: 5px solid lime;
+}
+#text{
+	position: absolute;
+	z-index: 3;
+	text-align: justify;
+	text-align: center;
+	letter-spacing: 0px;
+}
+#info{
+	background: white;
+	width: 800px;
+	height: 1000px;
+	position: absolute;
+	z-index: 2;
+	border-radius: 50px;
+	margin-left: 650px;
+	border: 5px solid lime;
+	margin-top: 40px;
+
+
+}
+
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<TITLE>   </TITLE>
+</head>	
+<BODY>
+<div id="main">
+	<p id="text">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p></div>
+<div id="footer"></div>
+
+
+<video width="480" controls id="video" >
+ <source src="css/Du.webm" type="video/webm">
+</video>
+</div>
+<div id="info">
+	
+
+
+
+
+</div>
+
+
+
+</BODY>	
+</html>
