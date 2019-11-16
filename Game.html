@@ -1,0 +1,177 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+#message{
+	border-radius: 10px;
+	text-align: center;
+	text-align: justify;
+	font-family: Tahoma;
+	text-transform: capitalize;
+}
+#footer{
+	background: purple;
+	width:800px;
+	height: 80px;
+	border-radius: 100px;
+	position: relative;
+	
+}
+#guess{
+	margin-top:30px;
+	margin-left: 50px;
+}
+#result{
+	margin-left: 30px;
+	margin-top: 80px;
+	position: absolute;
+	z-index: 5;
+	border-radius: 10px;
+	text-align: center;
+	text-align: justify;
+	font-family: Tahoma;
+	text-transform: capitalize;
+	font-size: 30px;
+}
+#main{
+	background: purple;
+	width: 600px;
+	height: 800px;
+	border-radius: 100px;
+	margin-top: 30px;
+	position: absolute;
+	z-index: 4;
+}
+#info{
+	background: orange;
+	height: 800px;
+	width:1000px;
+	margin-left: 700px;
+	margin-top:30px;
+	border-radius: 100px;
+	position: relative;
+	z-index: 4;
+}
+#footer2{
+	background: orange;
+	width: 500px;
+	height: 80px;
+	position: relative;
+	z-index: -1;
+	margin-left: 900px;
+	border-radius: 100px;
+	margin-top: -80px;
+}
+h1{
+	text-indent: 325px;
+}
+#text{
+	text-indent: 50px;
+	text-transform: capitalize;
+	font-size: 30px;
+	text-align: justify;
+	text-align: center;
+}
+#img1{
+	border-radius: 100px;
+	margin-left:420px;
+	margin-top: 100px;
+}
+#img2{
+	border-radius: 100px;
+	margin-left: 150px;
+	margin-top: 300px;
+	border: 3px solid white;
+}
+
+	</style>
+
+</head>
+<body>
+<div id="footer">
+<input id="guess">  </input><button id="btn">Відправити</button>
+</div>
+<div id="footer2"></div>
+
+
+<div id="result">
+<p id="guessNumbers">  </p>
+<p id="message"> </p>
+</div>
+<div id="main">
+	<img src="img/img.jpg" id="img2">
+</div>
+<div id="info">
+<h1>Гра вгадай число!!!</h1>
+<p id="text">
+ Відгадай за 10 спроб число від 1 до 100.Під час гри використовуй підказки.
+</p>
+<img src="img/message.png" id="img1">
+</div>
+
+
+
+<script type="text/javascript">
+let numberRandom = Math.round(Math.random() * 100);
+console.log(numberRandom);
+let guessCount = 1;
+let btn =  document.querySelector("#btn");
+btn.addEventListener("click", checkNumber);
+
+function checkNumber() {
+	let guess =  document.querySelector("#guess").value;
+	document.querySelector("#guess").value = "";
+	let guessNumbers =  document.querySelector("#guessNumbers");
+	if (guessCount == 1) {
+		guessNumbers.textContent = "Попередні спроби:";
+	}
+	guessNumbers.textContent += guess + " ";
+
+	let message = document.querySelector("#message");
+	if (guess == numberRandom){
+		message.textContent = "Віта ти переміг!!!";
+		message.style.background = "green";
+		btn. disabled = true;
+		gameOver(); 
+	} else if (guessCount < 10){
+		message.textContent = "Не вгадав!!";
+		message.style.background = "orange";
+		message.style.color = "black";
+
+	
+		if (guess < numberRandom ) {
+			message.textContent += " " + "Твоэ число замале";
+		}else {
+			message.textContent += " " + "Твоэ число завелике";
+		}
+		guessCount += 1;
+	} else{
+		message.textContent = "Ти програв !!!";
+		message.style.background = "red";
+		message.style.color = "black";
+		btn.disabled = true;
+		gameOver();
+	}
+};
+
+function gameOver() {
+	let btnOver = document.createElement("button");
+	btnOver.textContent = "Зіграти ще раз";
+	let result = document.querySelector("#result")
+	result.after(btnOver);
+	btnOver.addEventListener("click", function(){
+		numberRandom = Math.round(Math.random() * 100);
+		guessCount = 1
+		document.querySelector("#guessNumbers").textContent = "";
+		document.querySelector("#message").textContent = "";
+		btnOver.remove();
+		btn.disabled = false;
+	})
+}
+
+
+
+
+</script>
+</body>
+</html>
